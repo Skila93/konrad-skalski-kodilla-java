@@ -41,17 +41,24 @@ public class CollectionTestSuite {
     void testOddNumbersExterminatorNormalList() {
         //Given
         List<Integer> checkList = new ArrayList<>();
-        Random numbersGenerator = new Random();
+        List<Integer> expectedResults = new ArrayList<>();
         OddNumbersExterminator exterminator = new OddNumbersExterminator();
         //When
-        int expectedResult = 0;
-        for (int i = 0; i < 10; i++) {
-            checkList.add(numbersGenerator.nextInt(50));
+        expectedResults.add(0);
+        expectedResults.add(2);
+        expectedResults.add(4);
+        expectedResults.add(6);
+        expectedResults.add(8);
+        expectedResults.add(10);
+        for (int i = 0; i < 11; i++) {
+            checkList.add(i);
         }
-        for (int n = 0; n < exterminator.exterminate(checkList).size(); n++) {
-            int result = exterminator.exterminate(checkList).get(n) % 2;
-            //Then
-            Assertions.assertEquals(result, expectedResult);
+        int n = 0;
+        for(Integer expectedResult : expectedResults){
+            int resultExterminator = exterminator.exterminate(checkList).get(n);
+            Assertions.assertEquals(resultExterminator, expectedResult);
+            n++;
         }
+
     }
 }

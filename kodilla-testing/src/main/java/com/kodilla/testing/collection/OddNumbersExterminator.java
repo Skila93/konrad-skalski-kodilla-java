@@ -6,11 +6,9 @@ import java.util.List;
 public class OddNumbersExterminator {
     public List<Integer> exterminate(List<Integer> numbers){
         List<Integer> evenNumb = new ArrayList<Integer>();
-        int temporaryValue = 0;
-        for (int i = 0; i < numbers.size(); i++){
-            temporaryValue = numbers.get(i);
-            if(temporaryValue % 2 == 0){
-                evenNumb.add(temporaryValue);
+        for (Integer evNumb : numbers){
+            if(evNumb % 2 == 0){
+                evenNumb.add(evNumb);
             }
         }
         return evenNumb;
