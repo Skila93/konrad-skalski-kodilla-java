@@ -2,12 +2,12 @@ package com.kodilla.testing.forum;
 
 public class ForumComment {
     private ForumPost forumPost;
-    private String cpmmentBody;
+    private String commentBody;
     private String author;
 
-    public ForumComment(ForumPost forumPost, String cpmmentBody, String author) {
+    public ForumComment(ForumPost forumPost, String commentBody, String author) {
         this.forumPost = forumPost;
-        this.cpmmentBody = cpmmentBody;
+        this.commentBody = commentBody;
         this.author = author;
     }
 
@@ -15,8 +15,8 @@ public class ForumComment {
         return forumPost;
     }
 
-    public String getCpmmentBody() {
-        return cpmmentBody;
+    public String getCommentBody() {
+        return commentBody;
     }
 
     public String getAuthor() {
@@ -31,14 +31,14 @@ public class ForumComment {
         ForumComment that = (ForumComment) o;
 
         if (forumPost != null ? !forumPost.equals(that.forumPost) : that.forumPost != null) return false;
-        if (cpmmentBody != null ? !cpmmentBody.equals(that.cpmmentBody) : that.cpmmentBody != null) return false;
+        if (commentBody != null ? !commentBody.equals(that.commentBody) : that.commentBody != null) return false;
         return author != null ? author.equals(that.author) : that.author == null;
     }
 
     @Override
     public int hashCode() {
         int result = forumPost != null ? forumPost.hashCode() : 0;
-        result = 31 * result + (cpmmentBody != null ? cpmmentBody.hashCode() : 0);
+        result = 31 * result + (commentBody != null ? commentBody.hashCode() : 0);
         result = 31 * result + (author != null ? author.hashCode() : 0);
         return result;
     }

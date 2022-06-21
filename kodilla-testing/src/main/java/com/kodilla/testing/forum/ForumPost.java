@@ -1,16 +1,16 @@
 package com.kodilla.testing.forum;
 
 public class ForumPost {
-    private String postbody;
+    private String postBody;
     private String author;
 
-    public ForumPost(String postbody, String author) {
-        this.postbody = postbody;
+    public ForumPost(String postBody, String author) {
+        this.postBody = postBody;
         this.author = author;
     }
 
-    public String getPostbody() {
-        return postbody;
+    public String getPostBody() {
+        return postBody;
     }
 
     public String getAuthor() {
@@ -24,13 +24,13 @@ public class ForumPost {
 
         ForumPost forumPost = (ForumPost) o;
 
-        if (postbody != null ? !postbody.equals(forumPost.postbody) : forumPost.postbody != null) return false;
+        if (postBody != null ? !postBody.equals(forumPost.postBody) : forumPost.postBody != null) return false;
         return author != null ? author.equals(forumPost.author) : forumPost.author == null;
     }
 
     @Override
     public int hashCode() {
-        int result = postbody != null ? postbody.hashCode() : 0;
+        int result = postBody != null ? postBody.hashCode() : 0;
         result = 31 * result + (author != null ? author.hashCode() : 0);
         return result;
     }

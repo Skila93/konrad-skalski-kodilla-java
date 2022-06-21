@@ -53,12 +53,6 @@ public class CollectionTestSuite {
         for (int i = 0; i < 11; i++) {
             checkList.add(i);
         }
-        int n = 0;
-        for(Integer expectedResult : expectedResults){
-            int resultExterminator = exterminator.exterminate(checkList).get(n);
-            Assertions.assertEquals(resultExterminator, expectedResult);
-            n++;
-        }
-
+        Assertions.assertEquals(expectedResults, exterminator.exterminate(checkList));
     }
 }
