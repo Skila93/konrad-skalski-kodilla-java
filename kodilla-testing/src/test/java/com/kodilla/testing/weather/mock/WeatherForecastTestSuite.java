@@ -37,4 +37,44 @@ class WeatherForecastTestSuite {
         //Then
         Assertions.assertEquals(5, quantityOfSensors);
     }
-}
+    @Mock
+    private Temperatures meanMock;
+    @Test
+    void testMeanCalculation() {
+        //Given
+        Map<String, Double> temperaturesMap = new HashMap<>();
+        temperaturesMap.put("Rzeszow", 25.5);
+        temperaturesMap.put("Krakow", 26.2);
+        temperaturesMap.put("Wroclaw", 24.8);
+        temperaturesMap.put("Warszawa", 25.2);
+        temperaturesMap.put("Gdansk", 26.1);
+        when(meanMock.getTemperatures()).thenReturn(temperaturesMap);
+        WeatherForecast weatherMean = new WeatherForecast(meanMock);
+
+        //When
+        double meanCalculated = weatherMean.calculateMeanTemperatures();
+
+        //Then
+        Assertions.assertEquals(25.56, meanCalculated);
+    }
+    @Mock
+    private Temperatures medianMock;
+    @Test
+    void testMedianCalculation() {
+        //Given
+        Map<String, Double> temperaturesMap = new HashMap<>();
+        temperaturesMap.put("Rzeszow", 25.5);
+        temperaturesMap.put("Krakow", 26.2);
+        temperaturesMap.put("Wroclaw", 24.8);
+        temperaturesMap.put("Warszawa", 25.2);
+        temperaturesMap.put("Gdansk", 26.1);
+        when(medianMock.getTemperatures()).thenReturn(temperaturesMap);
+        WeatherForecast weatherMedian = new WeatherForecast(medianMock);
+
+        //When
+        double medianCalculated = weatherMedian.calculateMedianTemperature();
+
+        //Then
+        Assertions.assertEquals(25.5, medianCalculated);
+    }
+    }
