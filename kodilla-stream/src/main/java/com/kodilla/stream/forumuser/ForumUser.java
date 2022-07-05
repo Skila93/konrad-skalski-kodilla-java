@@ -1,6 +1,8 @@
 package com.kodilla.stream.forumuser;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ForumUser {
     private final Integer uniqueUserIdentifier;
@@ -51,4 +53,16 @@ public class ForumUser {
         return "Username: " + userName + ", UserNumber: " + uniqueUserIdentifier + ", sex: " + sex
                 + ", DayOfBirth: "+ birthDate + ", numberOfPosts: " + quantityOfPublishedPosts;
     }
+/*public List<ForumUser> filter20(List<ForumUser> forumUsersList){
+        List<ForumUser> returnList= new ArrayList<>();
+        for(ForumUser user : forumUsersList) {
+            if (getYearOfBirth() == 2002 && getMothOfBirth() <= 7 && getDayOfBirth() <= 4) {
+                returnList.add(user);
+            } else if(getYearOfBirth() < 2002){
+                returnList.add(user);
+            }
+        }
+        return new ArrayList<>(returnList);
+    }*/
+
 }
