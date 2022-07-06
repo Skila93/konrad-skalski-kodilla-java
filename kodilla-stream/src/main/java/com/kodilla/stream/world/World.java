@@ -10,19 +10,10 @@ public class World {
         world.add(continent);
     }
     public BigDecimal getPeopleQuantity(){
-        BigDecimal eur = world.stream()
-                .flatMap(country -> country.getEurope().stream())
+        BigDecimal worldPeople = world.stream()
+                .flatMap(country -> country.getContinent().stream())
                 .map(Country::getPeopleQuantity)
                 .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
-        BigDecimal asia = world.stream()
-                .flatMap(country -> country.getAsia().stream())
-                .map(Country::getPeopleQuantity)
-                .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
-        BigDecimal afr = world.stream()
-                .flatMap(country -> country.getAfrica().stream())
-                .map(Country::getPeopleQuantity)
-                .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
-        BigDecimal euras = eur.add(asia);
-        return euras.add(afr);
+        return worldPeople;
     }
 }

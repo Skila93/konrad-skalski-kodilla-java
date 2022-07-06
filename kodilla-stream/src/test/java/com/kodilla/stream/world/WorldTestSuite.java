@@ -34,16 +34,16 @@ public class WorldTestSuite {
             //World
         World world = new World();
             //Adding elements
-        europe.addCountryEurope(poland);
-        europe.addCountryEurope(germany);
-        europe.addCountryEurope(france);
+        europe.addCountry(poland);
+        europe.addCountry(germany);
+        europe.addCountry(france);
 
-        asia.addCountryAsia(singapore);
-        asia.addCountryAsia(china);
-        asia.addCountryAsia(japan);
+        asia.addCountry(singapore);
+        asia.addCountry(china);
+        asia.addCountry(japan);
 
-        africa.addCountryAfrica(kenia);
-        africa.addCountryAfrica(egypt);
+        africa.addCountry(kenia);
+        africa.addCountry(egypt);
 
         world.worldAdd(europe);
         world.worldAdd(asia);
