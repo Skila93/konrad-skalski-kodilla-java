@@ -6,7 +6,7 @@ public class ExceptionHandling {
         try {
             secondChallenge.probablyIWillThrowException(5,8);
         } catch (Exception e) {
-            System.out.println("No i kaszanka");
+            System.out.println("Exception occurred");
         }
     }
 
