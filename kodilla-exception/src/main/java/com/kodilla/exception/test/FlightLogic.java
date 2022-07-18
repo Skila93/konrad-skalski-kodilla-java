@@ -30,27 +30,11 @@ public class FlightLogic {
         FlightLogic flightLogic = new FlightLogic();
         try {
             flightLogic.findFlight(berlinWarsaw);
-        }catch(RouteNotFoundException e) {
-            System.out.println("Choose another flight");
-        }
-            try {
             flightLogic.findFlight(newYorkBerlin);
-            }catch(RouteNotFoundException e){
-                System.out.println("Choose another flight");
-            }
-            try {
             flightLogic.findFlight(newYorkRome);
-                }catch(RouteNotFoundException e){
-                System.out.println("Choose another flight");
-                }
-            try {
             flightLogic.findFlight(romeLondon);
-            }catch(RouteNotFoundException e){
-                System.out.println("Choose another flight");
-            }
-            try {
             flightLogic.findFlight(romeNewYork);
-            }catch(RouteNotFoundException e){
+        }catch(RouteNotFoundException e) {
             System.out.println("Choose another flight");
         }
     }
