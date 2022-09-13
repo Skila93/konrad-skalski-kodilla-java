@@ -14,10 +14,14 @@ public class ProductOrderProcessor {
     }
 
     public ProductOrderDTO process(ProductOrderRequest productOrderRequest) {
-        boolean isSold = productOrderService.sold(productOrderRequest.getUser(),
-                productOrderRequest.getOrderDate(),
-                productOrderRequest.getProduct(),
-                productOrderRequest.getQuantity());
+        boolean isSold = productOrderService.sold(productOrderRequest.getUser(), productOrderRequest.getOrderDate(), productOrderRequest.getProduct(), productOrderRequest.getQuantity());
+
+        /*System.out.println(productOrderRequest.getUser());
+        System.out.println(productOrderRequest.getOrderDate());
+        System.out.println(productOrderRequest.getProduct());
+        System.out.println(productOrderRequest.getQuantity());
+
+        System.out.println(isSold);*/
         if (isSold) {
             informationService.sendMessage(productOrderRequest.getUser());
             productOrderRepository.prepProductOrder(productOrderRequest.getUser(),

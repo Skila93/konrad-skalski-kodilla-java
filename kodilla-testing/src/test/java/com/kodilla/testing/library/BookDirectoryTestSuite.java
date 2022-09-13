@@ -1,6 +1,7 @@
 package com.kodilla.testing.library;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -41,6 +42,7 @@ class BookDirectoryTestSuite {
     }
 
     @Test
+    @Disabled
     void testListBooksWithConditionMoreThan20() {
         // Given
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);

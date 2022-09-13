@@ -10,8 +10,8 @@ public class ProductOrderRequestRetriever {
         LocalDateTime orderDate = LocalDateTime.of(2020, 3, 5, 11, 7, 44);
         Product product = new Toothbrush("Manual toothbrush",
                 "Soft",
-                new BigDecimal("8"));
-        int quantity = 1;
+                new BigDecimal("8.5"));
+        int quantity = 3;
 
         System.out.println("Retrieve product request:");
         System.out.println("User: " + user.getUserName() +
