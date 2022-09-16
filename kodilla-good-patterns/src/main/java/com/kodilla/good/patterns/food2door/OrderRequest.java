@@ -18,7 +18,7 @@ public class OrderRequest {
         return customer;
     }
 
-    public Manufacturer getFoodProducer() {
+    public Manufacturer getFoodManufacturer() {
         return manufacturer;
     }
 

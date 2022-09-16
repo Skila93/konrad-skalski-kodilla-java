@@ -9,7 +9,7 @@ public class OrderProcessor {
         orderRequest.stream()
                 .map(n -> {
                     System.out.println("Mr. " + n.getCustomer().getName() + ", your order is processing");
-                    return n.getFoodProducer().process(n.getCustomer(), n.getProductOrderRequest());
+                    return n.getFoodManufacturer().process(n.getCustomer(), n.getProductOrderRequest());
                 })
                 .forEach(t -> System.out.println("Is order confirmed: " + t + "\n"));
     }

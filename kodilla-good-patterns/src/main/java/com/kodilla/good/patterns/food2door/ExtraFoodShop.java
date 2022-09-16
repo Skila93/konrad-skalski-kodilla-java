@@ -21,7 +21,6 @@ public class ExtraFoodShop implements Manufacturer {
 
         return productsList;
     }
-
     @Override
     public boolean process(Customer customer, Map<Product, Integer>productsOrders) {
 
