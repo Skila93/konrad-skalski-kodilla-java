@@ -14,10 +14,10 @@ public class HealthyShop implements Manufacturer {
 
         Map<Product, Integer> productsList = new HashMap<>();
 
-        productsList.put(new GlutenFreeProduct("muesli", "soya flakes , maize flakes"), 1);
-        productsList.put(new GlutenFreeProduct("pasta", "rice flour"), 3);
+        productsList.put(new GlutenFreeProduct("muesli", "soya flakes , maize flakes"), 10);
+        productsList.put(new GlutenFreeProduct("pasta", "rice flour"), 30);
         productsList.put(new Fruit("chokeberry", true), 20);
-        productsList.put(new Fruit("banana", false), 4);
+        productsList.put(new Fruit("banana", false), 41);
 
         return productsList;
     }
@@ -31,6 +31,7 @@ public class HealthyShop implements Manufacturer {
         for (Map.Entry<Product, Integer> entry : productsOrders.entrySet()) {
             Optional<Integer> productQty = Optional.ofNullable(productsList.get(entry.getKey()));
             if (productQty.orElse(0) < entry.getValue()) {
+                System.out.println(productQty);
                 System.out.println("Product is unavailable.");
                 return false;
             }

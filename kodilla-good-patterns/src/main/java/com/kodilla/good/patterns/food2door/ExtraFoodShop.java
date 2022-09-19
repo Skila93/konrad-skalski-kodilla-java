@@ -15,9 +15,9 @@ public class ExtraFoodShop implements Manufacturer {
         Map<Product, Integer> productsList = new HashMap<>();
 
         productsList.put(new Dairy("goat's cheese", "goat's"), 10);
-        productsList.put(new Dairy("yogurt", "cow's"), 5);
+        productsList.put(new Dairy("yogurt", "cow's"), 50);
         productsList.put(new Fruit("apple", true), 20);
-        productsList.put(new Fruit("avokado", false), 0);
+        productsList.put(new Fruit("avokado", false), 90);
 
         return productsList;
     }
