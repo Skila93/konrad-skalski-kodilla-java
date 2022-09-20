@@ -1,12 +1,13 @@
 package com.kodilla.spring.portfolio;
 
-import com.kodilla.spring.reader.Reader;
-import com.kodilla.spring.reader.ReaderConfig;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import java.util.Arrays;
 
 @SpringBootTest
 public class BoardTestSuite {
@@ -20,6 +21,8 @@ public class BoardTestSuite {
         board.getToDoList().addTask("task to do");
         board.getInProgressList().addTask("in progress list");
         board.getDoneList().addTask("done list");
+
+
 
         //Then
         Assert.assertEquals("task to do", board.getToDoList().getTasks().get(0));
