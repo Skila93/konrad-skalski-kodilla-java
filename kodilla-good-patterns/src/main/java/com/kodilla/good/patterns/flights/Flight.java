@@ -1,54 +1,32 @@
 package com.kodilla.good.patterns.flights;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Objects;
 
 public class Flight {
-    private final String from;
-    private final String to;
-    public List<String> flightsFromKrakow = new LinkedList<>();
-    public List<String> flightsToWroclaw = new LinkedList<>();
-    public Flight(String from, String to) {
-        this.from = from;
-        this.to = to;
-        flightsFromKrakow.add("Wroclaw");
-        flightsFromKrakow.add("Warsaw");
-        flightsFromKrakow.add("Helsinki");
-        flightsFromKrakow.add("Wroclaw");
 
-        flightsToWroclaw.add("Krakow");
-        flightsToWroclaw.add("Warsaw");
-        flightsToWroclaw.add("Berlin");
-        flightsToWroclaw.add("Krakow");
-        flightsToWroclaw.add("Prague");
-    }
+    private Airport airportFrom;
+    private Airport airportTo;
 
-    public String getFrom() {
-        return from;
+    public Flight(Airport airportFrom, Airport airportTo) {
+        this.airportFrom = airportFrom;
+        this.airportTo = airportTo;
     }
-
-    public String getTo() {
-        return to;
+    public Airport getAirportFrom() {
+        return airportFrom;
     }
-
-    public List<String> getFlightsFromKrakow() {
-        return flightsFromKrakow;
+    public Airport getAirportTo() {
+        return airportTo;
     }
-
-    public List<String> getFlightsToWroclaw() {
-        return flightsToWroclaw;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Flight flight = (Flight) o;
+        return airportFrom == flight.airportFrom &&
+                airportTo == flight.airportTo;
     }
-    public String flightSearcher(){
-        for (String flightFrom : flightsFromKrakow){
-            if(flightFrom.equals(from)){
-                for (String fligtTo : flightsToWroclaw){
-                    if(fligtTo.equals(to)){
-                        return "Flight from " + from + " to " + to + " is available.";
-                    }
-                }
-            }
-        }
-        return "Nie znaleziono lotu";
+    @Override
+    public int hashCode() {
+        return Objects.hash(airportFrom.getName().charAt(0));
     }
 }
