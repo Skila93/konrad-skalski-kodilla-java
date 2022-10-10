@@ -25,8 +25,11 @@ public class Flight {
         return airportFrom == flight.airportFrom &&
                 airportTo == flight.airportTo;
     }
+
     @Override
     public int hashCode() {
-        return Objects.hash(airportFrom.getName().charAt(0));
+        int result = airportFrom != null ? airportFrom.hashCode() : 0;
+        result = 31 * result + (airportTo != null ? airportTo.hashCode() : 0);
+        return result;
     }
 }
