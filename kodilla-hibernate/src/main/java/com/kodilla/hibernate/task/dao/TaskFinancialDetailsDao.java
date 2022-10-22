@@ -9,5 +9,6 @@ import java.util.List;
 @Transactional
 @Repository
 public interface TaskFinancialDetailsDao extends CrudRepository<TaskFinancialDetails, Integer> {
+
     List<TaskFinancialDetails> findByPaid(boolean paid);
 }

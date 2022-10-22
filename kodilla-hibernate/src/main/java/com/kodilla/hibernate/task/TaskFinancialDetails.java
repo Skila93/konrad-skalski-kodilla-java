@@ -1,15 +1,13 @@
 package com.kodilla.hibernate.task;
 
-
-import com.sun.istack.NotNull;
-
 import javax.persistence.*;
-
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "TASKS_FINANCIALS")
 public class TaskFinancialDetails {
+
     private int id;
     private BigDecimal price;
     private boolean paid;
