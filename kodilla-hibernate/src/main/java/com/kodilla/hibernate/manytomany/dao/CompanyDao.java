@@ -11,6 +11,5 @@ import java.util.List;
 @Transactional
 @Repository
 public interface CompanyDao extends CrudRepository<Company, Integer> {
-List<Employee> retrieveLastname(@Param("LASTNAME") String lastName);
-List<Employee> retrieveCompanyLike(@Param("LASTNAME") String lastName);
+List<Company> retrieveCompanyLike(@Param("NAME") String name);
 }

@@ -15,6 +15,8 @@ class CompanyDaoTestSuite {
 
     @Autowired
     private CompanyDao companyDao;
+    @Autowired
+    private EmployeeDao employeeDao;
 
     @Test
     void testSaveManyToMany() {
@@ -88,14 +90,21 @@ class CompanyDaoTestSuite {
         lindaSmith.getCompanies().add(greyMatter);
 
         companyDao.save(softwareMachine);
+        int softwareMachineId = softwareMachine.getId();
         companyDao.save(dataMaesters);
+        int dataMaestersId = dataMaesters.getId();
         companyDao.save(greyMatter);
+        int greyMatterId = greyMatter.getId();
         //When
-        List<Employee> lastnameSmith = companyDao.retrieveLastname(johnSmith.getLastname());
-        List<Employee> threeFirstLetters = companyDao.retrieveCompanyLike("Gre");
+        List<Employee> lastnameSmith = employeeDao.retrieveLastname(johnSmith.getLastname());
+        List<Company> threeFirstLetters = companyDao.retrieveCompanyLike("Gre");
 
         //Then
         assertEquals(2, lastnameSmith.size());
         assertEquals(1, threeFirstLetters.size());
+        //CleanUp
+        companyDao.deleteById(softwareMachineId);
+        companyDao.deleteById(dataMaestersId);
+        companyDao.deleteById(greyMatterId);
     }
 }

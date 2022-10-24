@@ -7,8 +7,8 @@ import java.util.List;
 
 @NamedNativeQuery(
         name = "Employee.retrieveCompanyLike",
-        query = "SELECT * FROM EMPLOYEES WHERE LASTNAME LIKE CONCAT('%', :LASTNAME , '%')",
-        resultClass = Employee.class
+        query = "SELECT * FROM COMPANIES WHERE SUBSTRING(COMPANY_NAME, 1, 3) = :NAME",
+        resultClass = Company.class
 )
 @Entity
 @Table(name = "COMPANIES")
