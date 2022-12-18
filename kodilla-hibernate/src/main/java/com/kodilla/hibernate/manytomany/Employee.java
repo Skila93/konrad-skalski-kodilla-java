@@ -1,21 +1,24 @@
 package com.kodilla.hibernate.manytomany;
 
-import jdk.dynalink.linker.LinkerServices;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+@NamedQueries({
+        @NamedQuery(
+                name = "Employee.retrieveWithLastname",
+                query = "FROM Employee WHERE lastname = :LASTNAME"
+        ),
+        @NamedQuery(
+                name = "Employee.retrieveWithAnyLettersLastname",
+                query = "FROM Employee WHERE lastname LIKE CONCAT('%', :LASTNAME ,'%')"
+        ),
+})
 
-@NamedQuery(
-        name = "Employee.retrieveLastname",
-        query = "FROM Employee WHERE lastname = :LASTNAME"
-)
 
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
-
     private int id;
     private String firstname;
     private String lastname;
@@ -49,6 +52,17 @@ public class Employee {
         return lastname;
     }
 
+    private void setId(int id) {
+        this.id = id;
+    }
+
+    private void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    private void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
@@ -62,17 +76,5 @@ public class Employee {
 
     public void setCompanies(List<Company> companies) {
         this.companies = companies;
-    }
-
-    private void setId(int id) {
-        this.id = id;
-    }
-
-    private void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    private void setLastname(String lastname) {
-        this.lastname = lastname;
     }
 }
