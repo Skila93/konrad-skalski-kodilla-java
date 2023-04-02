@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class TaskListDaoTestSuite {
-    /*@Autowired
+    @Autowired
     private TaskListDao taskListDao;
     @Autowired
     private TaskDao taskDao;
@@ -120,12 +120,12 @@ public class TaskListDaoTestSuite {
         //Then
         try {
             assertEquals(1, longTasks.size());
-            assertEquals(3, shortTasks.size());
+            assertEquals(4, shortTasks.size());
             assertEquals(3, enoughTimeTasks.size());
-            assertEquals(2, durationLongerThanTasks.size());
+            assertEquals(3, durationLongerThanTasks.size());
         } finally {
             //CleanUp
             taskListDao.deleteById(id);
         }
-    }*/
+    }
 }

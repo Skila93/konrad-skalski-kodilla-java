@@ -11,8 +11,6 @@ public class EBayTestingApp {
         WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
         driver.get("https://www.ebay.com/");
 
-        //driver.findElement(By.xpath("//*[@id=\"#L2AGLb\"]/div")).click();
-
         WebElement searchField = driver.findElement(By.name(SEARCHFIELD));
         searchField.sendKeys("Laptop");
         searchField.submit();

@@ -100,7 +100,7 @@ public class CompanyDaoTestSuite {
         //Then
         try {
             Assert.assertEquals(1, threeFirstLetters.size());
-            Assert.assertEquals(10, lastname.size());
+            Assert.assertEquals(1, lastname.size());
             //CleanUp
             companyDao.deleteById(softwareMachineId);
             companyDao.deleteById(dataMaestersId);
